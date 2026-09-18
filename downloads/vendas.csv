@@ -1,0 +1,12 @@
+id,data,categoria,quantidade,preco_unitario,status
+1001,2026-08-01,Cursos,2,120.00,pago
+1002,2026-08-02,Livros,3,40.00,pago
+1003,2026-08-03,Cursos,1,380.00,pago
+1003,2026-08-03,Cursos,1,380.00,pago
+1004,2026-08-04,Assinaturas,2,60.00,pago
+1005,2026-08-05,Cursos,1,500.00,cancelado
+1006,2026-08-06,Cursos,3,300.00,pago
+1007,2026-08-07,Livros,5,60.00,pago
+1008,2026-08-08,Cursos,,100.00,pago
+1009,2026-08-09,Assinaturas,5,60.00,pago
+1010,2026-08-10,Cursos,2,300.00,pago

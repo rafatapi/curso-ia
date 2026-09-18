@@ -1,0 +1,181 @@
+{
+  "name": "IA na prática - Validar saída simulada de IA",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual",
+      "name": "Executar manualmente",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "// Respostas fictícias: este nó NÃO chama um modelo.\nreturn [\n  {json: {id: 'S1', mensagem: 'Esqueci minha senha', resposta_ia: '{\"categoria\":\"acesso\",\"motivo\":\"Falha de login\",\"revisao\":false}'}},\n  {json: {id: 'S2', mensagem: 'Preciso de ajuda', resposta_ia: '{\"categoria\":\"urgente\",\"motivo\":\"Indefinido\",\"revisao\":false}'}},\n  {json: {id: 'S3', mensagem: 'Qual é o prazo?', resposta_ia: 'isto não é JSON'}}\n];"
+      },
+      "id": "dados",
+      "name": "Saídas simuladas de IA",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "const categorias = new Set(['financeiro', 'acesso', 'outros', 'revisao']);\nreturn $input.all().map(item => {\n  const id = typeof item.json.id === 'string' ? item.json.id.trim() : '';\n  try {\n    if (!id) throw new Error('id ausente');\n    if (typeof item.json.mensagem !== 'string' || !item.json.mensagem.trim() || item.json.mensagem.length > 2000) throw new Error('mensagem inválida');\n    if (typeof item.json.resposta_ia !== 'string' || item.json.resposta_ia.length > 5000) throw new Error('resposta inválida ou grande demais');\n    const r = JSON.parse(item.json.resposta_ia);\n    if (!r || typeof r !== 'object' || Array.isArray(r)) throw new Error('objeto esperado');\n    const chaves = Object.keys(r).sort().join(',');\n    if (chaves !== 'categoria,motivo,revisao') throw new Error('campos inesperados ou ausentes');\n    if (!categorias.has(r.categoria)) throw new Error('categoria não permitida');\n    if (typeof r.motivo !== 'string' || !r.motivo.trim() || r.motivo.length > 300) throw new Error('motivo inválido');\n    if (typeof r.revisao !== 'boolean') throw new Error('revisao deve ser booleano');\n    return {json: {id, categoria: r.categoria, motivo: r.motivo, revisao: r.revisao || r.categoria === 'revisao', formato_valido: true}};\n  } catch (erro) {\n    // Mensagens estáveis; não repassa o corpo do modelo para o erro.\n    return {json: {id, categoria: 'revisao', motivo: 'Saída inválida; confira entrada e contrato', revisao: true, formato_valido: false}};\n  }\n});"
+      },
+      "id": "transformacao",
+      "name": "Validar contrato",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "revisao",
+              "leftValue": "={{ $json.revisao }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "condicao",
+      "name": "Precisa de revisão?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return $input.all().map(item => ({json: {...item.json, estado: 'aguardando_revisao', acao_externa_executada: false}}));"
+      },
+      "id": "revisao",
+      "name": "Fila de revisão",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return $input.all().map(item => ({json: {...item.json, estado: 'proposta_classificada', acao_externa_executada: false}}));"
+      },
+      "id": "classificados",
+      "name": "Propostas classificadas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## IA na prática — laboratório\nExecute manualmente e inspecione cada nó.\nDados fictícios. Nenhuma credencial. Nenhuma chamada externa.\nOs estados finais são propostas; não são aprovações nem envios.\nLeia os módulos 14 e 15 antes de conectar serviços.",
+        "height": 230,
+        "width": 690
+      },
+      "id": "nota",
+      "name": "Como usar",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -80
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Executar manualmente": {
+      "main": [
+        [
+          {
+            "node": "Saídas simuladas de IA",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Saídas simuladas de IA": {
+      "main": [
+        [
+          {
+            "node": "Validar contrato",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validar contrato": {
+      "main": [
+        [
+          {
+            "node": "Precisa de revisão?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Precisa de revisão?": {
+      "main": [
+        [
+          {
+            "node": "Fila de revisão",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Propostas classificadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo"
+  },
+  "tags": []
+}

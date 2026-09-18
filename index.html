@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#102d2b">
+  <meta name="description" content="Curso prático de inteligência artificial: fundamentos, ChatGPT, Claude, Gemini, agentes, plugins, APIs e automações com n8n. Aprenda com aulas guiadas e exercícios.">
+  <title>IA na prática — Seu próximo passo começa aqui</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <script src="data/course.js" defer></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Navegação principal">
+      <a href="#/" class="brand" aria-label="IA na prática, início"><span class="brand-symbol">ia<span>✳</span></span><span>na prática<small>APRENDER. EXPERIMENTAR. CRIAR.</small></span></a>
+      <div class="sidebar-label">SEU ESPAÇO DE APRENDIZADO</div>
+      <nav class="primary-nav" aria-label="Seções do curso">
+        <a href="#/" data-nav="home"><span aria-hidden="true">▦</span> Minha trilha</a>
+        <a href="#/projetos" data-nav="projetos"><span aria-hidden="true">◇</span> Projetos práticos</a>
+        <a href="#/biblioteca" data-nav="biblioteca"><span aria-hidden="true">▤</span> Biblioteca</a>
+        <a href="#/caderno" data-nav="caderno"><span aria-hidden="true">✎</span> Meu caderno</a>
+      </nav>
+      <div class="sidebar-label module-label">CONTEÚDO DO CURSO <span id="module-count">16</span></div>
+      <nav id="module-nav" class="module-nav" aria-label="Módulos"></nav>
+      <div class="sidebar-bottom"><div><span>Seu ritmo, seu caminho</span><strong id="side-percent">0%</strong></div><progress id="side-progress" max="100" value="0" aria-label="Progresso do curso"></progress><small id="side-count">Comece sua primeira aula.</small></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><button class="icon-button mobile-menu" id="menu-toggle" aria-label="Abrir menu" aria-controls="sidebar" aria-expanded="false">☰</button><span class="topbar-title">Do primeiro prompt ao seu primeiro agente.</span><button id="search-open" class="search-trigger"><span aria-hidden="true">⌕</span><span>Buscar no curso</span><kbd>/</kbd></button><span class="edition">EDIÇÃO 2026</span></header>
+      <main id="conteudo" tabindex="-1"></main>
+      <footer class="footer"><span>IA na prática <span aria-hidden="true">✳</span> Conhecimento que vira projeto.</span><a href="#/sobre">Sobre o curso e seus dados</a></footer>
+    </div>
+  </div>
+  <button class="menu-backdrop" id="menu-backdrop" aria-label="Fechar menu" hidden></button>
+  <dialog id="search-dialog" aria-labelledby="search-title"><div class="dialog-heading"><h2 id="search-title">O que você quer aprender?</h2><button class="icon-button" id="search-close" aria-label="Fechar busca">×</button></div><label class="sr-only" for="search-input">Buscar aulas, ferramentas e conceitos</label><input type="search" id="search-input" placeholder="Experimente “agentes”, “Claude” ou “n8n”…" autocomplete="off"><div id="search-results" class="search-results" aria-live="polite"></div></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <noscript><p>Ative o JavaScript para navegar no curso. O conteúdo também está disponível na pasta conteudo do projeto.</p></noscript>
+</body>
+</html>

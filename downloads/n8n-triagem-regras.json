@@ -1,0 +1,181 @@
+{
+  "name": "IA na prática - Triagem por regras",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "manual",
+      "name": "Executar manualmente",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return [\n  {json: {id: 'A1', mensagem: 'Preciso da segunda via do boleto'}},\n  {json: {id: 'A2', mensagem: 'Esqueci minha senha de acesso'}},\n  {json: {id: 'A3', mensagem: 'Olá, preciso de uma informação'}}\n];"
+      },
+      "id": "dados",
+      "name": "Pedidos de exemplo",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        240,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return $input.all().map(item => {\n  const id = typeof item.json.id === 'string' ? item.json.id.trim() : '';\n  const mensagem = typeof item.json.mensagem === 'string' ? item.json.mensagem.trim() : '';\n  const texto = mensagem.normalize('NFD').replace(/[\\u0300-\\u036f]/g, '').toLowerCase();\n  const financeiro = /boleto|pagamento|cobranca/.test(texto);\n  const acesso = /senha|login|acesso/.test(texto);\n  let categoria = 'revisao';\n  let motivo = 'Mensagem vazia, inválida ou intenção não reconhecida';\n  if (id && mensagem && mensagem.length <= 2000) {\n    if (financeiro && acesso) motivo = 'Múltiplas intenções';\n    else if (financeiro) {categoria = 'financeiro'; motivo = 'Palavra de cobrança encontrada';}\n    else if (acesso) {categoria = 'acesso'; motivo = 'Palavra de acesso encontrada';}\n  }\n  return {json: {id, mensagem, categoria, motivo, revisao: categoria === 'revisao'}};\n});"
+      },
+      "id": "transformacao",
+      "name": "Classificar por regras",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        480,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "revisao",
+              "leftValue": "={{ $json.revisao }}",
+              "rightValue": true,
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "id": "condicao",
+      "name": "Precisa de revisão?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [
+        720,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return $input.all().map(item => ({json: {...item.json, estado: 'aguardando_revisao', acao_externa_executada: false}}));"
+      },
+      "id": "revisao",
+      "name": "Fila de revisão",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForAllItems",
+        "jsCode": "return $input.all().map(item => ({json: {...item.json, estado: 'proposta_classificada', acao_externa_executada: false}}));"
+      },
+      "id": "classificados",
+      "name": "Propostas classificadas",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        980,
+        360
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## IA na prática — laboratório\nExecute manualmente e inspecione cada nó.\nDados fictícios. Nenhuma credencial. Nenhuma chamada externa.\nOs estados finais são propostas; não são aprovações nem envios.\nLeia os módulos 14 e 15 antes de conectar serviços.",
+        "height": 230,
+        "width": 690
+      },
+      "id": "nota",
+      "name": "Como usar",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        200,
+        -80
+      ]
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Executar manualmente": {
+      "main": [
+        [
+          {
+            "node": "Pedidos de exemplo",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Pedidos de exemplo": {
+      "main": [
+        [
+          {
+            "node": "Classificar por regras",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Classificar por regras": {
+      "main": [
+        [
+          {
+            "node": "Precisa de revisão?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Precisa de revisão?": {
+      "main": [
+        [
+          {
+            "node": "Fila de revisão",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Propostas classificadas",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "America/Sao_Paulo"
+  },
+  "tags": []
+}

@@ -1,0 +1,687 @@
+{
+  "modules": [
+    {
+      "id": "01-fundamentos",
+      "title": "Fundamentos de IA",
+      "short": "Fundamentos de IA",
+      "level": "Básico",
+      "icon": "✳",
+      "tone": "#eaf3e5",
+      "description": "Entenda a tecnologia, seus limites e o que muda na maneira de trabalhar.",
+      "prerequisite": "Nenhum conhecimento técnico. Tenha um navegador e curiosidade para experimentar.",
+      "outcome": "Distinguir modelo, aplicativo e ferramenta; reconhecer limites e avaliar respostas com critérios.",
+      "sources": [
+        "google-ml",
+        "openai-prompt"
+      ]
+    },
+    {
+      "id": "02-prompts",
+      "title": "A arte de dar contexto",
+      "short": "Prompts e contexto",
+      "level": "Básico",
+      "icon": "↳",
+      "tone": "#edf0fb",
+      "description": "Transforme pedidos vagos em instruções claras, testáveis e reutilizáveis.",
+      "prerequisite": "Concluir Fundamentos de IA e abrir uma conta em um assistente de sua escolha.",
+      "outcome": "Escrever prompts com critérios, fornecer exemplos e comparar versões com uma rubrica.",
+      "sources": [
+        "openai-prompt",
+        "claude-prompt"
+      ]
+    },
+    {
+      "id": "03-chatgpt",
+      "title": "ChatGPT no dia a dia",
+      "short": "ChatGPT",
+      "level": "Básico",
+      "icon": "◎",
+      "tone": "#e4f3ed",
+      "description": "Converse melhor, trabalhe com arquivos e organize tarefas recorrentes.",
+      "prerequisite": "Módulos 01 e 02. Uma conta no ChatGPT; recursos variam conforme sua conta.",
+      "outcome": "Conduzir uma tarefa em etapas, conferir arquivos e construir instruções reutilizáveis.",
+      "sources": [
+        "chatgpt",
+        "openai-prompt"
+      ]
+    },
+    {
+      "id": "04-claude",
+      "title": "Claude: leitura e criação",
+      "short": "Claude",
+      "level": "Básico",
+      "icon": "✴",
+      "tone": "#fbede4",
+      "description": "Explore documentos, revisão de textos e criação de artefatos com método.",
+      "prerequisite": "Noções de prompts e uma conta no Claude. Os exercícios têm alternativa por texto.",
+      "outcome": "Analisar evidências, iterar um artefato e organizar contexto para um trabalho recorrente.",
+      "sources": [
+        "claude-prompt",
+        "claude-help",
+        "claude-code"
+      ]
+    },
+    {
+      "id": "05-gemini",
+      "title": "Gemini e o universo Google",
+      "short": "Gemini",
+      "level": "Básico",
+      "icon": "✧",
+      "tone": "#e8eefb",
+      "description": "Experimente conversas multimodais, instruções reutilizáveis e fontes de estudo.",
+      "prerequisite": "Noções de prompts e acesso ao Gemini. Integrações Google são opcionais.",
+      "outcome": "Comparar respostas, montar um assistente de estudo e consultar documentos com fontes.",
+      "sources": [
+        "gemini-app",
+        "notebooklm",
+        "gemini-api"
+      ]
+    },
+    {
+      "id": "06-ecossistema",
+      "title": "Além de um único assistente",
+      "short": "Outras IAs e modelos locais",
+      "level": "Intermediário",
+      "icon": "⊞",
+      "tone": "#f2edfa",
+      "description": "Conheça Copilot, Perplexity e modelos locais. Escolha pela tarefa.",
+      "prerequisite": "Aulas introdutórias de ChatGPT, Claude e Gemini. Instalação local é opcional.",
+      "outcome": "Criar uma comparação justa entre produtos e decidir quando usar um modelo local.",
+      "sources": [
+        "copilot",
+        "perplexity",
+        "ollama"
+      ]
+    },
+    {
+      "id": "07-multimodal",
+      "title": "Imagem, áudio e vídeo",
+      "short": "IA multimodal",
+      "level": "Intermediário",
+      "icon": "◈",
+      "tone": "#fcf0df",
+      "description": "Leia imagens, crie peças visuais e estruture um fluxo de áudio e vídeo.",
+      "prerequisite": "Módulo de prompts. Use materiais próprios ou com autorização de uso.",
+      "outcome": "Especificar um visual, verificar extrações e criar um roteiro de produção multimodal.",
+      "sources": [
+        "openai-vision",
+        "gemini-api"
+      ]
+    },
+    {
+      "id": "08-produtividade",
+      "title": "Produtividade com critério",
+      "short": "Produtividade e dados",
+      "level": "Intermediário",
+      "icon": "▥",
+      "tone": "#eaf3e5",
+      "description": "Pesquise, escreva e analise dados sem perder o controle da informação.",
+      "prerequisite": "Módulos 01 a 07. Baixe os dados fictícios na biblioteca para a prática.",
+      "outcome": "Entregar uma pesquisa rastreável, um texto revisado e uma análise com números conferidos.",
+      "sources": [
+        "openai-prompt",
+        "perplexity"
+      ]
+    },
+    {
+      "id": "09-programacao",
+      "title": "Programação com IA",
+      "short": "Programação assistida",
+      "level": "Intermediário",
+      "icon": "⌘",
+      "tone": "#e9effb",
+      "description": "Aprenda o mínimo de código para construir, testar e revisar com um assistente.",
+      "prerequisite": "Saber criar arquivos e pastas. Instale Python 3.11+ para executar os laboratórios locais.",
+      "outcome": "Ler JSON, executar Python, pedir mudanças pequenas e usar Git para revisar seu projeto.",
+      "sources": [
+        "python",
+        "claude-code",
+        "github-pages"
+      ]
+    },
+    {
+      "id": "10-apis",
+      "title": "APIs: conectando as peças",
+      "short": "APIs de IA",
+      "level": "Intermediário",
+      "icon": "⇄",
+      "tone": "#e4f2f0",
+      "description": "Entenda HTTP, credenciais, respostas estruturadas e limites de uso.",
+      "prerequisite": "Módulo 09. Para chamadas reais, conta de API e orçamento próprio no provedor.",
+      "outcome": "Fazer uma chamada de servidor, validar a resposta e tratar erros sem expor uma chave.",
+      "sources": [
+        "openai-api",
+        "claude-api",
+        "gemini-api",
+        "openai-structured"
+      ]
+    },
+    {
+      "id": "11-rag",
+      "title": "IA com seus documentos",
+      "short": "RAG e base de conhecimento",
+      "level": "Avançado",
+      "icon": "▧",
+      "tone": "#f1ecf9",
+      "description": "Construa respostas apoiadas em fontes e aprenda a medir a recuperação.",
+      "prerequisite": "Módulos 09 e 10. Familiaridade com texto, JSON e execução de scripts locais.",
+      "outcome": "Distinguir RAG de ajuste fino, recuperar trechos e avaliar se uma resposta tem evidência.",
+      "sources": [
+        "retrieval",
+        "embeddings"
+      ]
+    },
+    {
+      "id": "12-agentes",
+      "title": "Agentes que fazem o trabalho",
+      "short": "Agentes de IA",
+      "level": "Avançado",
+      "icon": "⌁",
+      "tone": "#e5f2ea",
+      "description": "Dê objetivos, ferramentas e limites a um agente — e acompanhe o resultado.",
+      "prerequisite": "APIs, saídas estruturadas e recuperação de informações.",
+      "outcome": "Desenhar um ciclo de agente, contratos de ferramentas e controles de execução.",
+      "sources": [
+        "function-calling",
+        "agents",
+        "claude-tools"
+      ]
+    },
+    {
+      "id": "13-plugins",
+      "title": "Plugins, skills e MCP",
+      "short": "Plugins, skills e MCP",
+      "level": "Avançado",
+      "icon": "⊕",
+      "tone": "#fbede2",
+      "description": "Entenda como assistentes se conectam a serviços e ganham novas capacidades.",
+      "prerequisite": "Módulos de programação, APIs e agentes. A prática local requer Python.",
+      "outcome": "Separar instruções de integrações, entender MCP e testar uma ferramenta local de leitura.",
+      "sources": [
+        "mcp",
+        "mcp-python",
+        "plugins"
+      ]
+    },
+    {
+      "id": "14-n8n",
+      "title": "Automações com n8n",
+      "short": "n8n: primeiros fluxos",
+      "level": "Intermediário",
+      "icon": "⋈",
+      "tone": "#fce9ec",
+      "description": "Saia do trabalho manual com gatilhos, dados, condições e fluxos visuais.",
+      "prerequisite": "Entender JSON. Acesso a uma instância do n8n; a instalação local usa Docker.",
+      "outcome": "Executar um fluxo de triagem, ler dados de nós e diagnosticar falhas sem usar IA.",
+      "sources": [
+        "n8n-docker",
+        "n8n-code",
+        "n8n-webhook",
+        "n8n-compose"
+      ]
+    },
+    {
+      "id": "15-n8n-ia",
+      "title": "n8n + inteligência artificial",
+      "short": "n8n com IA e agentes",
+      "level": "Avançado",
+      "icon": "⚡",
+      "tone": "#fcf0df",
+      "description": "Combine modelos, validação e revisão humana em automações úteis.",
+      "prerequisite": "Módulos 10, 12 e 14. Chamada real exige credencial de API; o fluxo simulado é gratuito.",
+      "outcome": "Montar triagem com IA, lidar com saídas inválidas e preparar aprovação antes de ações externas.",
+      "sources": [
+        "n8n-ai",
+        "n8n-code",
+        "n8n-webhook",
+        "openai-structured"
+      ]
+    },
+    {
+      "id": "16-producao",
+      "title": "Do protótipo à entrega",
+      "short": "Avaliação e projeto final",
+      "level": "Avançado",
+      "icon": "↗",
+      "tone": "#e8effa",
+      "description": "Teste qualidade, controle custos e entregue seu primeiro sistema completo.",
+      "prerequisite": "Módulos anteriores e pelo menos dois projetos práticos concluídos.",
+      "outcome": "Criar um conjunto de avaliação, planejar operação e demonstrar um projeto com evidências.",
+      "sources": [
+        "evals",
+        "github-pages",
+        "agents"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "google-ml",
+      "title": "Google — introdução ao aprendizado de máquina",
+      "url": "https://developers.google.com/machine-learning/intro-to-ml",
+      "description": "Conceitos de aprendizado supervisionado, não supervisionado e modelos generativos."
+    },
+    {
+      "id": "openai-prompt",
+      "title": "OpenAI — prompting",
+      "url": "https://developers.openai.com/api/docs/guides/prompting",
+      "description": "Referência para instruções, contexto e desenvolvimento de prompts."
+    },
+    {
+      "id": "chatgpt",
+      "title": "ChatGPT — documentação de uso",
+      "url": "https://learn.chatgpt.com/",
+      "description": "Guia oficial de uso, recursos e configurações do produto."
+    },
+    {
+      "id": "claude-prompt",
+      "title": "Claude — engenharia de prompts",
+      "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview",
+      "description": "Orientação para definir critérios, elaborar prompts e iterar experimentos."
+    },
+    {
+      "id": "claude-help",
+      "title": "Claude — central de ajuda",
+      "url": "https://support.claude.com/",
+      "description": "Guias de projetos, artefatos, arquivos e configurações de conta."
+    },
+    {
+      "id": "claude-code",
+      "title": "Claude Code — visão geral",
+      "url": "https://code.claude.com/docs/en/overview",
+      "description": "Documentação do assistente de programação e de seu ambiente de trabalho."
+    },
+    {
+      "id": "gemini-app",
+      "title": "Google — usar os apps Gemini",
+      "url": "https://support.google.com/gemini/answer/13275745",
+      "description": "Conversas, arquivos, requisitos de conta e disponibilidade de funcionalidades."
+    },
+    {
+      "id": "gemini-api",
+      "title": "Google — referência generateContent",
+      "url": "https://ai.google.dev/api/generate-content",
+      "description": "Autenticação e integração de modelos Gemini em aplicações."
+    },
+    {
+      "id": "notebooklm",
+      "title": "Google — ajuda do NotebookLM",
+      "url": "https://support.google.com/notebooklm/",
+      "description": "Como organizar fontes e trabalhar com um caderno de pesquisa."
+    },
+    {
+      "id": "copilot",
+      "title": "Microsoft — ajuda do Copilot",
+      "url": "https://support.microsoft.com/copilot",
+      "description": "Recursos, produtos e instruções de uso do ecossistema Copilot."
+    },
+    {
+      "id": "perplexity",
+      "title": "Perplexity — central de ajuda",
+      "url": "https://www.perplexity.ai/help-center",
+      "description": "Uso do assistente de pesquisa e leitura das fontes apresentadas."
+    },
+    {
+      "id": "ollama",
+      "title": "Ollama — início rápido",
+      "url": "https://docs.ollama.com/quickstart",
+      "description": "Instalação e execução de modelos; confira requisitos e modalidade local ou em nuvem."
+    },
+    {
+      "id": "openai-vision",
+      "title": "OpenAI — imagens e visão",
+      "url": "https://developers.openai.com/api/docs/guides/images-vision",
+      "description": "Uso de imagens na entrada de modelos e limitações de interpretação."
+    },
+    {
+      "id": "python",
+      "title": "Python — tutorial em português",
+      "url": "https://docs.python.org/pt-br/3/tutorial/",
+      "description": "Fundamentos da linguagem, execução de programas e estruturas de dados."
+    },
+    {
+      "id": "openai-api",
+      "title": "OpenAI — início rápido da API",
+      "url": "https://developers.openai.com/api/docs/quickstart",
+      "description": "Configuração e primeiros pedidos à API de modelos."
+    },
+    {
+      "id": "claude-api",
+      "title": "Claude — visão geral da API",
+      "url": "https://platform.claude.com/docs/en/api/overview",
+      "description": "Endpoints, autenticação e versão da API."
+    },
+    {
+      "id": "openai-structured",
+      "title": "OpenAI — saídas estruturadas",
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs",
+      "description": "Esquemas de saída e validação do formato de respostas."
+    },
+    {
+      "id": "retrieval",
+      "title": "OpenAI — recuperação de informações",
+      "url": "https://developers.openai.com/api/docs/guides/retrieval",
+      "description": "Pesquisa em dados e organização de bases para respostas apoiadas em documentos."
+    },
+    {
+      "id": "embeddings",
+      "title": "OpenAI — embeddings",
+      "url": "https://developers.openai.com/api/docs/guides/embeddings",
+      "description": "Representações vetoriais de texto e usos em busca por similaridade."
+    },
+    {
+      "id": "function-calling",
+      "title": "OpenAI — chamadas de ferramentas",
+      "url": "https://developers.openai.com/api/docs/guides/function-calling",
+      "description": "Contratos de funções e troca de resultados entre aplicação e modelo."
+    },
+    {
+      "id": "agents",
+      "title": "OpenAI — agentes",
+      "url": "https://developers.openai.com/api/docs/guides/agents",
+      "description": "Arquitetura e componentes para fluxos com agentes."
+    },
+    {
+      "id": "claude-tools",
+      "title": "Claude — uso de ferramentas",
+      "url": "https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview",
+      "description": "Definições de ferramentas e padrões de integração com Claude."
+    },
+    {
+      "id": "mcp",
+      "title": "MCP — arquitetura",
+      "url": "https://modelcontextprotocol.io/docs/learn/architecture",
+      "description": "Host, cliente, servidor, ferramentas, recursos e prompts no protocolo MCP."
+    },
+    {
+      "id": "mcp-python",
+      "title": "MCP — SDK oficial Python 1.x",
+      "url": "https://github.com/modelcontextprotocol/python-sdk/tree/v1.x",
+      "description": "Implementação e exemplos de servidores MCP em Python."
+    },
+    {
+      "id": "plugins",
+      "title": "OpenAI — plugins",
+      "url": "https://developers.openai.com/plugins/",
+      "description": "Documentação de integrações, skills e empacotamento de plugins."
+    },
+    {
+      "id": "n8n-docker",
+      "title": "n8n — Docker para laboratório local",
+      "url": "https://docs.n8n.io/deploy/host-n8n/install-options/install-with-docker",
+      "description": "Preparação de uma instância local e persistência de dados."
+    },
+    {
+      "id": "n8n-code",
+      "title": "n8n — nó Code",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.code/",
+      "description": "Transformação de itens em fluxos com JavaScript ou Python, conforme o ambiente."
+    },
+    {
+      "id": "n8n-webhook",
+      "title": "n8n — nó Webhook",
+      "url": "https://docs.n8n.io/integrations/builtin/core-nodes/n8n-nodes-base.webhook/",
+      "description": "Gatilhos HTTP, URLs de teste e de produção e modos de resposta."
+    },
+    {
+      "id": "n8n-ai",
+      "title": "n8n — integrar modelos, agentes e ferramentas",
+      "url": "https://docs.n8n.io/build/integrate-ai",
+      "description": "Introdução a modelos, agentes e conexões de IA dentro de workflows."
+    },
+    {
+      "id": "evals",
+      "title": "OpenAI — boas práticas de avaliação",
+      "url": "https://developers.openai.com/api/docs/guides/evaluation-best-practices",
+      "description": "Conjuntos de testes, critérios e avaliação contínua de aplicações com IA."
+    },
+    {
+      "id": "github-pages",
+      "title": "GitHub — criar um site no Pages",
+      "url": "https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site",
+      "description": "Publicação de sites estáticos a partir de um repositório GitHub."
+    },
+    {
+      "id": "n8n-compose",
+      "title": "n8n — instalação com Docker Compose",
+      "url": "https://docs.n8n.io/deploy/host-n8n/install-options/install-using-docker-compose",
+      "description": "Guia atual de composição de serviços para instalação; confira os requisitos do seu ambiente."
+    }
+  ],
+  "downloads": [
+    {
+      "title": "Kit de prompts comentados",
+      "description": "Modelos para estudar, pesquisar, revisar, classificar e criar, com critérios de conferência.",
+      "type": "MARKDOWN",
+      "path": "downloads/kit-prompts.md"
+    },
+    {
+      "title": "Dados fictícios para praticar",
+      "description": "Vendas com situações de qualidade de dados para os exercícios do módulo 08.",
+      "type": "CSV",
+      "path": "downloads/vendas.csv"
+    },
+    {
+      "title": "n8n: triagem por regras",
+      "description": "Fluxo importável, sem credenciais: dados fictícios, normalização e encaminhamento.",
+      "type": "WORKFLOW JSON",
+      "path": "downloads/n8n-triagem-regras.json"
+    },
+    {
+      "title": "n8n: validar uma resposta de IA",
+      "description": "Fluxo importável com resposta simulada. Pratique validação e revisão humana sem chamar uma API.",
+      "type": "WORKFLOW JSON",
+      "path": "downloads/n8n-validacao-ia.json"
+    },
+    {
+      "title": "Primeira chamada de API",
+      "description": "Script Python com configuração por ambiente para OpenAI, Claude ou Gemini. Chamadas reais podem ter custo.",
+      "type": "PYTHON",
+      "path": "downloads/chamada_api.py"
+    },
+    {
+      "title": "Laboratório de recuperação local",
+      "description": "Busca lexical em documentos fictícios, sem dependências. Uma base para entender a etapa de recuperação do RAG.",
+      "type": "PYTHON",
+      "path": "downloads/recuperacao_local.py"
+    },
+    {
+      "title": "Servidor MCP de consulta",
+      "description": "Ferramenta local de leitura de uma política fictícia. Requer a instalação do SDK oficial.",
+      "type": "PYTHON",
+      "path": "downloads/servidor_mcp.py"
+    },
+    {
+      "title": "Caderno de avaliações",
+      "description": "Casos normais, limites, entradas adversariais e campos para comparar resultados.",
+      "type": "CSV",
+      "path": "downloads/avaliacoes.csv"
+    },
+    {
+      "title": "Roteiro de entrega final",
+      "description": "Modelo para documentar objetivo, arquitetura, testes, custos e demonstração do projeto.",
+      "type": "MARKDOWN",
+      "path": "downloads/projeto-final.md"
+    }
+  ],
+  "glossary": [
+    {
+      "term": "Agente",
+      "definition": "Sistema que usa um modelo para decidir próximos passos e ferramentas dentro de limites definidos pela aplicação."
+    },
+    {
+      "term": "Alucinação",
+      "definition": "Conteúdo gerado sem suporte confiável, como um fato incorreto ou uma referência inventada."
+    },
+    {
+      "term": "API",
+      "definition": "Interface para programas trocarem dados e solicitarem operações segundo um contrato."
+    },
+    {
+      "term": "Autenticação",
+      "definition": "Processo de verificar a identidade de quem está usando um serviço."
+    },
+    {
+      "term": "Autorização",
+      "definition": "Verificação das operações e dados que uma identidade pode acessar."
+    },
+    {
+      "term": "Chunk",
+      "definition": "Trecho de um documento preparado como unidade para busca ou processamento."
+    },
+    {
+      "term": "Contexto",
+      "definition": "Informações disponibilizadas ao modelo em uma interação: instruções, histórico, fontes e resultados de ferramentas."
+    },
+    {
+      "term": "Embedding",
+      "definition": "Representação numérica de um item, frequentemente usada para medir similaridade entre textos."
+    },
+    {
+      "term": "Eval",
+      "definition": "Avaliação sistemática de uma aplicação ou modelo usando casos de teste e critérios definidos."
+    },
+    {
+      "term": "Few-shot",
+      "definition": "Uso de alguns exemplos no prompt para demonstrar o padrão desejado de entrada e saída."
+    },
+    {
+      "term": "Fine-tuning",
+      "definition": "Ajuste adicional dos parâmetros de um modelo com dados selecionados. Não é o mesmo que anexar documentos."
+    },
+    {
+      "term": "Function calling",
+      "definition": "Mecanismo pelo qual o modelo solicita uma função com argumentos estruturados; a aplicação valida e executa."
+    },
+    {
+      "term": "Guardrail",
+      "definition": "Controle que reduz comportamentos indesejados, como validação de entrada, restrição de ferramentas ou revisão humana."
+    },
+    {
+      "term": "HTTP",
+      "definition": "Protocolo usado para pedidos e respostas entre clientes e servidores na web."
+    },
+    {
+      "term": "Idempotência",
+      "definition": "Propriedade pela qual repetir uma operação com a mesma identificação não duplica seu efeito final."
+    },
+    {
+      "term": "Inferência",
+      "definition": "Uso de um modelo já treinado para produzir uma previsão ou resposta."
+    },
+    {
+      "term": "JSON",
+      "definition": "Formato textual de dados estruturados com objetos, listas, números, strings, booleanos e null."
+    },
+    {
+      "term": "LLM",
+      "definition": "Modelo de linguagem de grande porte que aprende padrões e gera sequências de tokens."
+    },
+    {
+      "term": "MCP",
+      "definition": "Model Context Protocol: protocolo para conectar aplicações de IA a servidores que oferecem ferramentas e contexto."
+    },
+    {
+      "term": "Memória",
+      "definition": "Informações persistidas por uma aplicação para uso posterior. É distinta do treinamento e do contexto de uma chamada."
+    },
+    {
+      "term": "Multimodal",
+      "definition": "Capacidade de trabalhar com mais de um tipo de entrada ou saída, como texto, imagem e áudio."
+    },
+    {
+      "term": "n8n",
+      "definition": "Plataforma de automação baseada em workflows, nós, conexões, credenciais e execuções."
+    },
+    {
+      "term": "Nó",
+      "definition": "Etapa de um workflow que recebe dados, executa uma operação e produz itens para as próximas etapas."
+    },
+    {
+      "term": "Plugin",
+      "definition": "Pacote que amplia capacidades de uma aplicação. O formato e as permissões dependem do ecossistema."
+    },
+    {
+      "term": "Prompt",
+      "definition": "Instruções e contexto usados para solicitar uma tarefa a um modelo."
+    },
+    {
+      "term": "Prompt injection",
+      "definition": "Tentativa de fazer conteúdo não confiável assumir o papel de instrução e desviar o comportamento de um sistema."
+    },
+    {
+      "term": "RAG",
+      "definition": "Geração aumentada por recuperação: buscar evidências e fornecê-las ao modelo antes de produzir uma resposta."
+    },
+    {
+      "term": "Rate limit",
+      "definition": "Limite de uso de um serviço em um intervalo, medido por chamadas, tokens ou outro recurso."
+    },
+    {
+      "term": "Reranking",
+      "definition": "Reordenação dos resultados recuperados com outro critério de relevância antes de montar o contexto."
+    },
+    {
+      "term": "Schema",
+      "definition": "Descrição formal da estrutura esperada de um dado, incluindo tipos, propriedades e restrições."
+    },
+    {
+      "term": "Skill",
+      "definition": "Conjunto reutilizável de instruções e recursos para uma tarefa, conforme o formato aceito pelo aplicativo."
+    },
+    {
+      "term": "Temperatura",
+      "definition": "Parâmetro de amostragem disponível em alguns modelos; altera variabilidade, sem funcionar como controle direto de veracidade."
+    },
+    {
+      "term": "Token",
+      "definition": "Unidade usada pelo modelo para representar conteúdo. Pode ser parte de uma palavra e não equivale a uma palavra fixa."
+    },
+    {
+      "term": "Webhook",
+      "definition": "Endpoint HTTP que recebe eventos para iniciar ou alimentar um processamento."
+    },
+    {
+      "term": "Workflow",
+      "definition": "Sequência ou grafo de etapas que organiza um processo automatizado."
+    },
+    {
+      "term": "Zero-shot",
+      "definition": "Solicitar uma tarefa por instruções sem exemplos demonstrativos no prompt."
+    }
+  ],
+  "projects": [
+    {
+      "id": "assistente-estudo",
+      "title": "Seu assistente de estudos",
+      "level": "Básico",
+      "duration": "2–3 horas",
+      "summary": "Transforme um texto de referência em plano de estudo, perguntas e revisão com evidências.",
+      "content": "## O desafio\nCriar um tutor para um assunto que você quer aprender. O sistema deve explicar sem inventar informações ausentes e deve deixar você tentar antes de mostrar a resposta. Faça após os módulos 01 a 05.\n\n## Passo a passo\n1. Escolha um texto público de duas a cinco páginas. Registre título, autor, link e data de acesso.\n2. Escreva um objetivo mensurável: explicar três conceitos e resolver cinco questões.\n3. Monte instruções com público, fonte permitida, formato e regra para informação ausente.\n4. Peça um plano de três sessões de 25 minutos e confira se os tópicos existem na fonte.\n5. Solicite cinco perguntas sem respostas. Responda antes de pedir a correção.\n6. Compare a correção com o documento. Adicione duas perguntas que não são respondidas pela fonte.\n7. Repita em um segundo assistente mantendo o mesmo texto e registre diferenças.\n\n## Entrega\nSalve a fonte ou seu link, o prompt versão 1 e versão 2, as sete perguntas, as respostas, as correções e uma reflexão de dez linhas. Não compartilhe material protegido integralmente sem autorização.\n\n## Critérios de aceite\n- As cinco questões válidas têm resposta sustentada pelo texto.\n- As duas perguntas fora do escopo recebem uma indicação explícita de ausência.\n- O tutor não mostra o gabarito antes da tentativa quando isso for solicitado.\n- O plano cabe no tempo informado.\n\n## Rubrica\nAtribua 0 a 2 pontos para fidelidade, clareza, utilidade do feedback e aderência às instruções. Busque pelo menos 7/8 e nenhuma fonte inventada. Se falhar, altere uma instrução por vez e repita os mesmos testes.\n\n## Próximo passo\nCrie uma versão reutilizável das instruções no recurso de personalização disponível em seu assistente ou guarde um arquivo de texto para colar em uma conversa nova."
+    },
+    {
+      "id": "relatorio-dados",
+      "title": "Um relatório que você consegue defender",
+      "level": "Intermediário",
+      "duration": "3–4 horas",
+      "summary": "Faça uma análise de vendas com números conferidos e conclusões rastreáveis.",
+      "content": "## O desafio\nProduzir um relatório de uma página usando [vendas.csv](downloads/vendas.csv). A planilha contém duplicidade, cancelamento e quantidade ausente de propósito. Faça após o módulo 08.\n\n## Passo a passo\n1. Abra o CSV e identifique o significado das colunas. O preço é unitário, em reais, e usa ponto decimal.\n2. Defina regras: excluir duplicatas por id; excluir cancelados; separar registros sem quantidade para revisão, sem preencher silenciosamente.\n3. Peça ao assistente que descreva as regras antes de calcular.\n4. Calcule receita válida como quantidade × preço unitário. Confira com calculadora ou Python.\n5. Agrupe por categoria. Calcule a participação de cada categoria sobre o total válido.\n6. Crie uma tabela de exceções e explique por que cada linha saiu do cálculo.\n7. Gere uma conclusão que separe observação de hipótese. Não atribua causalidade a uma simples comparação.\n\n## Gabarito de controle\nApós as regras, há 8 pedidos válidos. A receita é R$ 2.960,00: Cursos R$ 2.120,00; Livros R$ 420,00; Assinaturas R$ 420,00. O id 1003 está duplicado; 1005 está cancelado; 1008 não tem quantidade.\n\n## Entrega\nInclua método, tabela por categoria, total, exceções e duas recomendações condicionais. Acrescente o prompt e como conferiu os números.\n\n## Critérios de aceite\n- O resultado bate com o gabarito de controle.\n- Nenhuma exceção é corrigida sem registro.\n- Percentuais usam o mesmo denominador e arredondamento declarado.\n- As conclusões não inventam dados de clientes ou períodos anteriores.\n\n## Se o resultado divergir\nConfira separador, conversão numérica, duplicatas e filtros nessa ordem. Peça as linhas incluídas na soma, não apenas uma nova resposta final."
+    },
+    {
+      "id": "triagem-n8n",
+      "title": "Sua primeira central de triagem",
+      "level": "Intermediário",
+      "duration": "3–5 horas",
+      "summary": "Classifique solicitações e prepare uma fila de revisão com fluxos importáveis no n8n.",
+      "content": "## O desafio\nCriar uma triagem que sempre preserva o identificador do pedido e nunca envia uma resposta externa sem aprovação. Faça após os módulos 14 e 15.\n\n## Passo a passo\n1. Importe [o fluxo por regras](downloads/n8n-triagem-regras.json) em uma instância de teste do n8n. Ele não precisa de credenciais.\n2. Execute manualmente. Confira os três pedidos e a categoria atribuída a cada um.\n3. Mude o texto de um pedido para uma frase desconhecida e veja se ele segue para revisão.\n4. Importe [o fluxo de validação de IA](downloads/n8n-validacao-ia.json). As saídas são simuladas e nenhuma API é chamada.\n5. Observe a resposta válida, a categoria inválida e o JSON malformado. A validação deve impedir que os dois últimos sejam tratados como decisões finais.\n6. Opcional: substitua o nó de simulação por uma chamada de modelo usando o procedimento do módulo 15. Guarde a chave em Credentials, nunca no JSON exportado.\n7. Desenhe uma aprovação persistente: id, conteúdo aprovado, aprovador, horário e estado. A simulação fornecida prepara a fila; ela não implementa envio nem autenticação de aprovadores.\n\n## Testes\nUse: pedido vazio, categoria não prevista, frase ambígua, instrução maliciosa dentro da mensagem, repetição do mesmo id e falha do modelo.\n\n## Entrega\nExporte o workflow sem segredos e registre captura dos resultados, dados de teste e uma tabela com esperado versus observado.\n\n## Critérios de aceite\n- Cada entrada termina classificada ou explicitamente em revisão.\n- Texto de cliente nunca é executado como código.\n- JSON inválido não interrompe os demais itens.\n- A reexecução não envia mensagens nem duplica ações externas.\n\n## Extensão\nIntegre uma tabela de pendências somente depois de definir controle de acesso e chave de idempotência. Documente que nós foram alterados e a versão do n8n utilizada."
+    },
+    {
+      "id": "assistente-documentos",
+      "title": "Projeto final: assistente com fontes",
+      "level": "Avançado",
+      "duration": "6–10 horas",
+      "summary": "Una documentos, ferramentas, avaliação e automação em uma demonstração completa.",
+      "content": "## O desafio\nConstruir um protótipo de atendimento para a empresa fictícia Aurora Cursos. O assistente consulta políticas, responde com evidências e prepara solicitações para revisão humana. Não utiliza dados reais de clientes.\n\n## Escopo mínimo\nO sistema recebe uma pergunta e um identificador fictício, busca a política relevante, gera ou monta uma resposta, valida o formato e guarda uma proposta de encaminhamento. Uma decisão sem evidência termina em revisão. Pode ser implementado em Python ou n8n; o site do curso é apenas material de estudo.\n\n## Etapas\n1. Use [o roteiro de entrega](downloads/projeto-final.md). Defina três intenções atendidas e duas fora do escopo.\n2. Crie três documentos pequenos com versão, título, conteúdo e dono responsável.\n3. Construa a recuperação primeiro. Use [o laboratório local](downloads/recuperacao_local.py) para entender a lógica; para busca semântica, implemente embeddings separadamente.\n4. Monte um prompt que trate documentos como dados e exija referências aos trechos recuperados.\n5. Defina uma ferramenta de leitura com argumentos limitados. Uma segunda ferramenta pode preparar uma proposta, sem efetuar envio.\n6. Estabeleça limites de chamadas e timeout, saída de erro e confirmação para ações com efeito externo.\n7. Crie pelo menos 20 casos: 8 normais, 4 sem evidência, 4 ambíguos e 4 adversariais.\n8. Rode os mesmos casos após cada alteração. Registre sucesso, recusa adequada, tempo e custo estimado.\n9. Demonstre três acertos e duas falhas controladas.\n\n## Critérios de aceite\n- Toda afirmação de política aponta para um trecho que realmente a sustenta.\n- O sistema admite ausência de evidência em todos os casos desenhados para isso.\n- Nenhuma ação externa acontece sem validação e aprovação aplicáveis.\n- Entradas repetidas não duplicam efeitos.\n- Há procedimento para falha do provedor e rollback da versão.\n\n## Avaliação\nDê até 2 pontos para cada dimensão: correção, fontes, segurança operacional, observabilidade e documentação. Exija pelo menos 8/10 e zero execução não autorizada. O limiar é didático, não garantia de prontidão para produção.\n\n## Entrega\nInclua README, desenho do fluxo, dados fictícios, código ou workflow, exemplos de configuração sem chaves, testes preenchidos e limitações conhecidas. Publique apenas os arquivos revisados e mantenha qualquer backend com credenciais fora do GitHub Pages."
+    }
+  ]
+}
