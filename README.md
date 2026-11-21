@@ -21,7 +21,7 @@ Abra `index.html` no navegador. O curso usa arquivos locais e não exige uma API
 Para testar com um endereço local consistente e melhor compatibilidade de armazenamento:
 
 ```powershell
-cd C:\git\curso-ia
+cd C:\git\estudos\curso-ia-na-pratica
 python -m http.server 8937 --bind 127.0.0.1
 ```
 
